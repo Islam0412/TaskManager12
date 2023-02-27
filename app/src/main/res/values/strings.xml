@@ -10,4 +10,7 @@
     <string name="skip">Skip</string>
     <string name="get_started">Get Started</string>
     <string name="text">Text</string>
+    <string name="description">Description</string>
+    <string name="save">Save</string>
+    <string name="tittle">Tittle</string>
 </resources>

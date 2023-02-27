@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"
         android:layout_marginTop="16dp"
-        android:hint="Tittle" />
+        android:hint="@string/tittle" />
 
     <EditText
         android:id="@+id/et_desc"
@@ -19,7 +19,8 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"
         android:layout_marginTop="16dp"
-        android:hint="Description" />
+        android:hint="@string/description"
+        android:autofillHints="" />
 
     <Button
         android:id="@+id/btn_save"
@@ -27,5 +28,5 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="16dp"
-        android:text="Save" />
+        android:text="@string/save" />
 </LinearLayout>
