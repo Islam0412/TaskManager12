@@ -55,7 +55,6 @@ class HomeFragment : Fragment() {
             builder.setMessage("Если вы удалите данную строку его нельзя будет восстановить!")
             builder.setPositiveButton("Да") { _: DialogInterface, _: Int ->
                 App.db.taskDao().delete(task[position])
-                setData()
             }
             builder.setNegativeButton("Нет") { _: DialogInterface, _: Int ->
             }
@@ -87,8 +86,10 @@ class HomeFragment : Fragment() {
                     setData()
                 }
                 builder.setNegativeButton("Нет") { dialogInterface: DialogInterface, i: Int ->
+                    dialogInterface.cancel()
                 }
                 builder.show()
+
             }
 
 
