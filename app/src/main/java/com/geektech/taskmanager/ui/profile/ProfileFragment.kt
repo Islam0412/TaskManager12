@@ -21,6 +21,7 @@ class ProfileFragment : Fragment() {
 
 private lateinit var binding: FragmentProfileBinding
 private lateinit var pref: Pref
+
 private val launcher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()){
     if (it.resultCode == Activity.RESULT_OK && it.data != null){
         val uri: Uri? = it.data?.data
