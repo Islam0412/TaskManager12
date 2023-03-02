@@ -41,16 +41,19 @@ private val launcher = registerForActivityResult(ActivityResultContracts.StartAc
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        pref = Pref(requireContext())
         saveName()
+
     }
 
     private fun saveName() {
+        pref = Pref(requireContext())
         binding.etText.setText(pref.getName())
 
         binding.etText.addTextChangedListener {
             pref.saveName(binding.etText.text.toString())
         }
+
+        binding.imvProfile.loadImage(pref.getImage())
         binding.imvProfile.setOnClickListener{
             val intent = Intent()
             intent.type = "image/*"

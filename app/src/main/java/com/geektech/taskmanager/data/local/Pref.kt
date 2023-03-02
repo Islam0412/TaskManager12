@@ -8,14 +8,13 @@ class Pref(context: Context) {
 
     private val pref = context.getSharedPreferences(PREF_NAME, MODE_PRIVATE)
 
-    fun getImage(): String {
-        return pref.getString(IMAGE_KEY, "").toString()
-
-    }
 
     fun setImage(image: String) {
         pref.edit().putString(IMAGE_KEY, image).apply()
+    }
 
+    fun getImage(): String {
+        return pref.getString(IMAGE_KEY, "").toString()
     }
 
 
