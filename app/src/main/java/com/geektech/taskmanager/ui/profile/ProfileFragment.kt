@@ -11,20 +11,23 @@ import android.view.ViewGroup
 import androidx.activity.result.contract.ActivityResultContract
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.widget.addTextChangedListener
+import androidx.navigation.fragment.findNavController
 import com.geektech.taskmanager.R
 import com.geektech.taskmanager.data.local.Pref
 import com.geektech.taskmanager.databinding.FragmentProfileBinding
 import com.geektech.taskmanager.utils.loadImage
+import com.google.firebase.auth.FirebaseAuth
 import java.net.URI
 
 class ProfileFragment : Fragment() {
 
 private lateinit var binding: FragmentProfileBinding
 private lateinit var pref: Pref
-
+private lateinit var auth: FirebaseAuth
 private val launcher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()){
     if (it.resultCode == Activity.RESULT_OK && it.data != null){
         val uri: Uri? = it.data?.data
+
         pref.setImage(uri.toString())
         binding.imvProfile.loadImage(uri.toString())
     }
@@ -41,12 +44,22 @@ private val launcher = registerForActivityResult(ActivityResultContracts.StartAc
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        pref = Pref(requireContext())
+        auth = FirebaseAuth.getInstance()
         saveName()
+        signOut()
+    }
 
+    private fun signOut() {
+        binding.btnNazad.setOnClickListener{
+            FirebaseAuth.getInstance().signOut()
+            findNavController().navigate(R.id.authFragment)
+            auth.currentUser == null
+            findNavController().navigate(R.id.authFragment)
+        }
     }
 
     private fun saveName() {
-        pref = Pref(requireContext())
         binding.etText.setText(pref.getName())
 
         binding.etText.addTextChangedListener {

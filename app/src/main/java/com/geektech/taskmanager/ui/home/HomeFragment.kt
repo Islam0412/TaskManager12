@@ -56,7 +56,8 @@ class HomeFragment : Fragment() {
             builder.setPositiveButton("Да") { _: DialogInterface, _: Int ->
                 App.db.taskDao().delete(task[position])
             }
-            builder.setNegativeButton("Нет") { _: DialogInterface, _: Int ->
+            builder.setNegativeButton("Нет") { dialog: DialogInterface, _: Int ->
+                dialog.dismiss()
             }
             builder.show()
     }
@@ -86,7 +87,7 @@ class HomeFragment : Fragment() {
                     setData()
                 }
                 builder.setNegativeButton("Нет") { dialogInterface: DialogInterface, i: Int ->
-                    dialogInterface.cancel()
+                    dialogInterface.dismiss()
                 }
                 builder.show()
 

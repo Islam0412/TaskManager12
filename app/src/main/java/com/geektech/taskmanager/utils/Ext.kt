@@ -1,9 +1,13 @@
 package com.geektech.taskmanager.utils
 
+import android.content.Context
 import android.widget.ImageView
+import android.widget.Toast
 import com.bumptech.glide.Glide
-import com.squareup.picasso.Picasso
 
 fun ImageView.loadImage(url: String){
     Glide.with(this).load(url).into(this)
+}
+fun Context.toast(msg:String){
+    Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
 }

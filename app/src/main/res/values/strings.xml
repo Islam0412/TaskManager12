@@ -13,4 +13,6 @@
     <string name="description">Description</string>
     <string name="save">Save</string>
     <string name="tittle">Tittle</string>
+    <string name="google">Google</string>
+    <string name="назад"><![CDATA[<-]]></string>
 </resources>
