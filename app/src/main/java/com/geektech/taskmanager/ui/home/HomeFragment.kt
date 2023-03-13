@@ -90,14 +90,11 @@ class HomeFragment : Fragment() {
                     dialogInterface.dismiss()
                 }
                 builder.show()
-
+                setData()
             }
 
 
         }).attachToRecyclerView(binding.recyclerView)
     }
-    companion object {
-        const val RESULT_KEY = "request key"
-        const val TASK_KEY = "task key"
-    }
+
 }
